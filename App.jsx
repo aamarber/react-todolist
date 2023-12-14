@@ -1,11 +1,10 @@
-import React, { useReducer, useState } from "react";
-import TaskList from "./Task/TaskList";
+import React from "react";
 
 export default function App(){
 
     return (
         <>
-            <TaskList></TaskList>
+            
         </>
     )
 }
