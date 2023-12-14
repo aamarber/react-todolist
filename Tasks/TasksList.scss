@@ -1,0 +1,27 @@
+@use '../styles/colors';
+@use '../styles/dimensions';
+
+.tasks-list{
+    button{
+        border: none;
+        background: none;
+        padding: 2em;
+
+        &:hover{
+            cursor: pointer;
+            color: colors.$success-color;
+        }
+    }
+
+    .tasks-header, .tasks-body{
+        padding: dimensions.$default-padding;
+    }
+
+    .tasks-header{
+        background-color: colors.$main-color;
+    }
+
+    .tasks-body{
+        background-color: colors.$secondary-color;
+    }
+}

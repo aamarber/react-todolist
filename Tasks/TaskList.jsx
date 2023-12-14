@@ -1,5 +1,6 @@
 import React, { useReducer, useState } from 'react'
 import Task from './Task';
+import './TasksList.scss';
 
 export default function TaskList() {
     const [taskText, setTaskText] = useState('');
@@ -14,6 +15,10 @@ export default function TaskList() {
     }
 
     const addTask = () =>{
+        if(!taskText){
+            return;
+        }
+
         dispatch({type: 'add', name:taskText});
 
         clearTaskText();
@@ -31,19 +36,25 @@ export default function TaskList() {
 
     return (
         <>
-            <h1>Here's your list of pending tasks:</h1>
-            {tasks.length === 0 ? <h2>There are no pending tasks. Lucky!</h2> : ''}
-            <input type="text" placeholder="I have to..." onChange={(e) => setTaskText(e.target.value)} value={taskText}/>
-            <button className="add-task-button" onClick={() => addTask() }>ADD</button>
-            <ul>
-                {tasks.map((task) => {
-                    return (
-                        <>
-                            <Task task={task} onCompleteTask={completeTask}></Task>
-                        </>
-                    )
-                })}
-            </ul>
+            <section className="tasks-list">
+                <section className='tasks-header'>
+                    {tasks.length === 0 ? <h1>There are no pending tasks. Lucky!</h1> : ''}
+                    <h2>To-do:</h2>
+                </section>
+                <section className="tasks-body">
+                    <input type="text" placeholder="I have to..." onChange={(e) => setTaskText(e.target.value)} value={taskText}/>
+                    <button className="add-task-button" onClick={() => addTask() }>+</button>
+                    <ul>
+                        {tasks.map((task) => {
+                            return (
+                                <>
+                                    <Task task={task} onCompleteTask={completeTask}></Task>
+                                </>
+                            )
+                        })}
+                    </ul>
+                </section>
+            </section>
         </>
     );
 }
