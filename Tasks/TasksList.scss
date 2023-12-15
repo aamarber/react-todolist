@@ -2,10 +2,24 @@
 @use '../styles/dimensions';
 
 .tasks-list{
+    width: 100%;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+
+    input, button{
+        border-radius: dimensions.$border-radius;
+        border: solid 2px colors.$border-color;
+    }
+
+    input{
+        padding: dimensions.$default-spacing;
+    }
+
     button{
-        border: none;
-        background: none;
+        background-color: colors.$border-color;
         padding: 2em;
+        color: colors.$highlight-color;
 
         &:hover{
             cursor: pointer;
@@ -13,15 +27,31 @@
         }
     }
 
-    .tasks-header, .tasks-body{
-        padding: dimensions.$default-padding;
-    }
-
     .tasks-header{
+        padding: dimensions.$default-spacing;
         background-color: colors.$main-color;
+        flex-grow: 0;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: dimensions.$default-spacing;
+
+        .task-creator-container{
+            flex-grow: 1;
+            display: flex;
+            gap: dimensions.$default-spacing;
+            justify-content: space-between;
+        }
     }
 
     .tasks-body{
+        padding: dimensions.$default-spacing * 0.75 dimensions.$default-spacing;
         background-color: colors.$secondary-color;
+
+        flex-grow: 1;
+        
+        ul{
+            list-style-type: none;
+        }
     }
 }

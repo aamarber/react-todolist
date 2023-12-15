@@ -7,7 +7,10 @@ function Task({task, onCompleteTask}) {
     }
   return (
     <li key={task.id} className='task'>
-        {<span className={"task-name" + (task.completed ? ' task-completed' : '')}>{task.name}</span>}
+        <span className={"task-name" + (task.completed ? ' task-completed' : '')}>
+            {task.name}
+        </span>
+        
         {task.completed ? 
             <span className="completed-sign">✓</span> : 
             <button className="complete-task-button" onClick={() => completeTask(task)}>✓</button>

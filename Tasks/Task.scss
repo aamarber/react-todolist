@@ -1,4 +1,18 @@
+@use '../styles/colors';
+@use '../styles/dimensions';
+
 .task{
+
+    display: flex;
+    gap: dimensions.$default-spacing;
+    align-items: center;
+    justify-content: space-between;
+    background-color: colors.$inane-color;
+    border-radius: dimensions.$default-spacing * 0.5;
+    padding-left: dimensions.$default-spacing;
+
+    margin-bottom: dimensions.$default-spacing;
+
     .task-completed{
         text-decoration: line-through;
     }
